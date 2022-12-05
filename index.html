@@ -1,76 +1,15 @@
-<!-- <html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <title>Instascan – Demo</title>
-  <link rel="icon" type="image/png" href="https://schmich.github.io/instascan/favicon.png">
-  <link rel="stylesheet" href="https://schmich.github.io/instascan/style.css">
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
-  <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-</head>
-
-<body>
-  <a href="https://github.com/schmich/instascan"><img
-      style="position: absolute; top: 0; right: 0; border: 0; z-index: 1"
-      src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
-      alt="Fork me on GitHub"
-      data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
-  <div id="app">
-    <div class="sidebar">
-      <section class="cameras">
-        <h2>Cameras</h2>
-        <ul>
-          <li class="empty">No cameras found</li>
-        </ul>
-      </section>
-      <section class="scans">
-        <h2>Scans</h2>
-        <ul>
-          <li class="empty">No scans yet</li>
-        </ul>
-        <ul></ul>
-      </section>
-    </div>
-    <div class="preview-container"><video id="preview" autoplay="autoplay" class="inactive"
-        style="transform: scaleX(-1);"></video></div>
-  </div>
-  <script type="text/javascript">
-    let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-    scanner.addListener('scan', function (content) {
-      console.log(content);
-      alert(content);
-    });
-    Instascan.Camera.getCameras().then(function (cameras) {
-      console.log(cameras.length);
-      alert(cameras.length);
-      if (cameras.length > 0) {
-        if (cameras.length > 1) {
-          alert("2");
-          scanner.start(cameras[1]);
-        } else {
-          alert("1");
-          scanner.start(cameras[0]);
-        }
-      } else {
-        console.error('No cameras found.');
-      }
-    }).catch(function (e) {
-      console.error(e);
-    });
-  </script>
-</body>
-
-</html> -->
-<html lang="en"><head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 
-<body _c_t_common="1">
-  <div id="reader" width="600px" style="position: relative;"><video muted="true" playsinline="" style="width: 1520px; display: block;"></video><canvas id="qr-canvas" width="350" height="350" style="width: 350px; height: 350px; display: none;"></canvas><div id="qr-shaded-region" style="position: absolute; border-width: 395px 585px; border-style: solid; border-color: rgba(0, 0, 0, 0.48); box-sizing: border-box; inset: 0px;"><div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: -5px; left: 0px;"></div><div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: -5px; right: 0px;"></div><div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; bottom: -5px; left: 0px;"></div><div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; bottom: -5px; right: 0px;"></div><div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: -5px; left: -5px;"></div><div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; bottom: -5px; left: -5px;"></div><div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: -5px; right: -5px;"></div><div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; bottom: -5px; right: -5px;"></div></div><div style="display: none; position: absolute; top: 0px; z-index: 1; background: yellow; text-align: center; width: 100%;">Scanner paused</div></div>
+<body>
+  <div id="reader" width="600px"> </div>
   <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
   <script type="text/javascript">
     // This method will trigger user permissions
@@ -79,7 +18,7 @@
         var cameraId = devices[0].id;
         const html5QrCode = new Html5Qrcode("reader");
         const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-          alert(decodedText);// 這裡已經可以正確彈出掃描結果，但點按無法跳轉
+          //alert(decodedText);// 這裡已經可以正確彈出掃描結果，但點按無法跳轉
           setTimeout(location.href=decodedText,1000);
         };
         const config = {
@@ -97,16 +36,6 @@
       // handle err
     });
   </script>
+</body>
 
-
-
-<div id="fatkun-drop-panel">
-        <a id="fatkun-drop-panel-close-btn">×</a>
-            <div id="fatkun-drop-panel-inner">
-                <div class="fatkun-content">
-                    <svg class="fatkun-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5892"><path d="M494.933333 782.933333c2.133333 2.133333 4.266667 4.266667 8.533334 6.4h8.533333c6.4 0 10.666667-2.133333 14.933333-6.4l2.133334-2.133333 275.2-275.2c8.533333-8.533333 8.533333-21.333333 0-29.866667-8.533333-8.533333-21.333333-8.533333-29.866667 0L533.333333 716.8V128c0-12.8-8.533333-21.333333-21.333333-21.333333s-21.333333 8.533333-21.333333 21.333333v588.8L249.6 475.733333c-8.533333-8.533333-21.333333-8.533333-29.866667 0-8.533333 8.533333-8.533333 21.333333 0 29.866667l275.2 277.333333zM853.333333 874.666667H172.8c-12.8 0-21.333333 8.533333-21.333333 21.333333s8.533333 21.333333 21.333333 21.333333H853.333333c12.8 0 21.333333-8.533333 21.333334-21.333333s-10.666667-21.333333-21.333334-21.333333z" p-id="5893"></path></svg>
-                    <div class="fatkun-title">拖拽到此处</div>
-                    <div class="fatkun-desc">图片将完成下载</div>
-                </div>
-            </div>
-    </div></body></html>
+</html>
